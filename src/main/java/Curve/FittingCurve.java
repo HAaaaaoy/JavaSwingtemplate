@@ -1,3 +1,5 @@
+package Curve;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.jfree.chart.ChartFactory;
@@ -17,7 +19,6 @@ public class FittingCurve extends ApplicationFrame{
  List<Double> equation = null;
  //设置多项式的次数
  int times = 2;
-
  public FittingCurve(String title) {
   super(title);
   //使用最小二乘法计算拟合多项式中各项前的系数。
@@ -34,7 +35,7 @@ dataset.addSeries(s2);
   //多项式的次数从高到低，该函数需要的参数：x轴数据<List>，y轴数据<List>，多项式的次数<2>
   this.equation = this.getCurveEquation(this.getData().get(0),this.getData().get(1),this.times);
 
-//生成Chart
+  //生成Chart
   JFreeChart chart = this.getChart();
   ChartPanel chartPanel = new ChartPanel(chart);
   chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));
@@ -44,11 +45,10 @@ dataset.addSeries(s2);
 
  public static void main(String[] args) {
   // TODO Auto-generated method stub
-  FittingCurve demo = new FittingCurve("XYFittingCurve");
-  demo.pack();
-  RefineryUtilities.centerFrameOnScreen(demo);
-  demo.setVisible(true);
-
+    FittingCurve demo = new FittingCurve("XYFittingCurve");
+    demo.pack();
+    RefineryUtilities.centerFrameOnScreen(demo);
+    demo.setVisible(true);
  }
 
  //生成chart
@@ -62,6 +62,7 @@ dataset.addSeries(s2);
   XYPlot plot = (XYPlot) xyChart.getPlot();
 
   XYItemRenderer r = plot.getRenderer();
+
   if (r instanceof XYLineAndShapeRenderer) {
    XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) r;
    renderer.setBaseShapesVisible(false);//坐标点的形状是否可见
@@ -78,7 +79,7 @@ dataset.addSeries(s2);
     XYSeries s1 = new XYSeries("拟合曲线");
     XYSeries s2 = new XYSeries("点点连线");
 
-    // 拟合曲线绘制 数据集 XYSeries s1 = new XYSeries("拟合曲线");
+    //拟合曲线绘制 数据集 XYSeries s1 = new XYSeries("拟合曲线");
     //获取拟合多项式系数，equation在构造方法中已经实例化
     List<Double> list = this.equation;
     //获取预设的点数据
@@ -136,7 +137,6 @@ dataset.addSeries(s2);
   list.add(x);
   list.add(y);
   return list;
-
  }
 
  //以下代码为最小二乘法计算多项式系数
@@ -164,7 +164,6 @@ dataset.addSeries(s2);
    }
    T.add(ti);
   }
-
   //把S和T 放入二维数组，作为矩阵
   double[][] matrix = new double[m+1][m+2];
   for(int k=0; k<m+1; k++){
@@ -211,13 +210,11 @@ dataset.addSeries(s2);
 
  //计算一元多次方程前面的系数， 其排列为 xm xm-1 …… x0（多项式次数从高到低排列）
  public List<Double> MatrixCalcu(double[][] d){
-
   int i = d.length -1;
   int j = d[0].length -1;
   List<Double> list = new ArrayList<Double>();
   double res = d[i][j]/d[i][j-1];
   list.add(res);
-
   for(int k=i-1; k>=0; k--){
    double num = d[k][j];
    for(int q=j-1; q>k; q--){

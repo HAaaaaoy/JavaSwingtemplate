@@ -1,3 +1,5 @@
+package GUI;
+
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
@@ -18,12 +20,40 @@ public class DataBox {
     private JTabbedPane tabbedPane1;
 
     public void load() {
-        DefaultMutableTreeNode root = new DefaultMutableTreeNode("DataBox");
-        DefaultMutableTreeNode node1 = new DefaultMutableTreeNode("无人机");
-        node1.add(new DefaultMutableTreeNode("簇头"));
-        node1.add(new DefaultMutableTreeNode("簇员"));
-        node1.add(new DefaultMutableTreeNode("网关"));
+        DefaultMutableTreeNode root = new DefaultMutableTreeNode("无人机仿真系统");
+        DefaultMutableTreeNode node1 = new DefaultMutableTreeNode("无人机簇1");
+        DefaultMutableTreeNode node2 = new DefaultMutableTreeNode("无人机簇2");
+        DefaultMutableTreeNode node3 = new DefaultMutableTreeNode("无人机簇3");
+        DefaultMutableTreeNode type1 = new DefaultMutableTreeNode("簇头节点");
+        DefaultMutableTreeNode type2 = new DefaultMutableTreeNode("网关节点");
+        DefaultMutableTreeNode type3 = new DefaultMutableTreeNode("普通节点");
+
+        type1.add(new DefaultMutableTreeNode("UAV-0"));
+        type2.add(new DefaultMutableTreeNode("UAV-13"));
+        type3.add(new DefaultMutableTreeNode("UAV-16"));
+        type3.add(new DefaultMutableTreeNode("UAV-24"));
+        type3.add(new DefaultMutableTreeNode("UAV-35"));
+        type3.add(new DefaultMutableTreeNode("UAV-46"));
+        type3.add(new DefaultMutableTreeNode("UAV-27"));
+        type3.add(new DefaultMutableTreeNode("UAV-17"));
+        type3.add(new DefaultMutableTreeNode("UAV-18"));
+        type3.add(new DefaultMutableTreeNode("UAV-15"));
+        type3.add(new DefaultMutableTreeNode("UAV-22"));
+        type3.add(new DefaultMutableTreeNode("UAV-23"));
+        type3.add(new DefaultMutableTreeNode("UAV-11"));
+        type3.add(new DefaultMutableTreeNode("UAV-2"));
+        type3.add(new DefaultMutableTreeNode("UAV-6"));
+        type3.add(new DefaultMutableTreeNode("UAV-8"));
+        type3.add(new DefaultMutableTreeNode("UAV-4"));
+        type3.add(new DefaultMutableTreeNode("UAV-3"));
+        node1.add(type1);
+        node1.add(type2);
+        node1.add(type3);
+
         root.add(node1);
+        root.add(node2);
+        root.add(node3);
+
         tree1.setModel(new DefaultTreeModel(root));
     }
 
@@ -84,7 +114,10 @@ public class DataBox {
         panel3.add(tabbedPane1, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, new Dimension(200, 200), null, 0, false));
         final JPanel panel4 = new JPanel();
         panel4.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
-        tabbedPane1.addTab("输出", panel4);
+        tabbedPane1.addTab("输入", panel4);
+        final JPanel panel5 = new JPanel();
+        panel5.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        tabbedPane1.addTab("输出", panel5);
     }
 
     /**

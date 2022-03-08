@@ -1,3 +1,5 @@
+package Guitil;
+
 public class MyUtil {
     /**
      * 生成指定长度字符串，不足位右补空格

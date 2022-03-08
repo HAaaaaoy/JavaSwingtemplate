@@ -1,14 +1,12 @@
+package Curve;
+
 import java.awt.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.jfree.chart.ChartPanel; 
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.axis.ValueAxis;
-import org.jfree.chart.title.TextTitle;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.ui.ApplicationFrame; 
@@ -118,9 +116,9 @@ public class XYLineChart_AWT extends ApplicationFrame
    public static void main( String[ ] args ) 
    {
       XYLineChart_AWT chart = new XYLineChart_AWT("网络生成图", "网络生成图");
-      chart.pack( );          
-      RefineryUtilities.centerFrameOnScreen( chart );          
-      chart.setVisible( true ); 
+      chart.pack();
+      RefineryUtilities.centerFrameOnScreen(chart);
+      chart.setVisible(true);
    }
 
 
