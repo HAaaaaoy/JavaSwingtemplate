@@ -1,2 +1,2 @@
-# component1
+# Swingtool
 Java swing chart and picture.
